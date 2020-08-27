@@ -6,12 +6,15 @@ if [ -d ./00 ] ; then
     echo -n "Clear old files..."
     /bin/rm -fr ./00 >& /dev/null
     echo "done"
+else
+    echo "Create dir"
+    mkdir 00
 fi
 STARTT=`date +%s`
 echo $STARTT
 echo ""
 echo "## Create files "
-time ~/fs-bench/cr
+time create-file
 
 echo ""
 echo "## tar all "
@@ -23,15 +26,15 @@ time chown -R $USER  ./00
 
 echo ""
 echo "## random access"
-time ~/fs-bench/ra  $MAXFILE
+time random-access  $MAXFILE
 
 echo ""
 echo "## Change mode "
 time chmod -R go+rw  ./00
 
 echo ""
-echo "## Random delete and create"
-time ~/fs-bench/radc  $MAXFILE
+echo "## Random delete and create-fileeate"
+time random-access-del-create  $MAXFILE
 
 echo ""
 echo "## Change mode again"

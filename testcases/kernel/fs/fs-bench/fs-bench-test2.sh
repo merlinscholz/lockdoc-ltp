@@ -1,6 +1,11 @@
 #! /bin/bash
 
+MAXFILES=150
+let HALFFILES=MAXFILES/2
+
+
 echo "## Start Test"
+echo "# MAXFILES="${MAXFILES}
 date
 date +%s
 if [ -d ./00 ] ; then
@@ -11,12 +16,12 @@ echo $STARTT
 
 echo ""
 echo "## Create files "
-time ~/fs-bench/cr
+time create-files $MAXFILES
 
 echo ""
 echo "## tar all "
-MAXFILE=`tar cBf - 00 | tar tvBf - 2>&1 | tail -n 1 | awk '{print $6;}'| awk -F'/' '{print $4;}'`
-HALFFILE=`echo "obase=F;ibase=F;$MAXFILE/2" | bc`
+#MAXFILE=`tar cBf - 00 | tar tvBf - 2>&1 | tail -n 1 | awk '{print $6;}'| awk -F'/' '{print $4;}'`
+#HALFFILE=`echo "obase=F;ibase=F;$MAXFILE/2" | bc`
 
 echo ""
 echo "## Remove all files and directories"
@@ -25,15 +30,15 @@ echo "## Remove all files and directories"
 echo ""
 echo "## Create half files"
 echo create half files
-time ~/fs-bench/cr  $HALFFILE
+time create-files  $HALFFILES
 
 echo ""
 echo "## Change owner"
-time chown -R $USER  ./00
+time chown -R root  ./00
 
 echo ""
 echo "## random access"
-time ~/fs-bench/ra  $HALFFILE
+time random-access  $HALFFILES
 
 
 echo ""
@@ -42,7 +47,7 @@ time chmod -R go+rw  ./00
 
 echo ""
 echo "## Random delete and create"
-time ~/fs-bench/radc  $HALFFILE
+time random-access-del-create  $HALFFILES
 
 echo ""
 echo "## Change mode again"
