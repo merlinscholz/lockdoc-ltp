@@ -34,37 +34,37 @@ DIR="$TMPDIR/race"
 execute_test()
 {
 [ -e $DIR ] || mkdir $DIR
-./fs_racer_file_create.sh $DIR $MAX_FILES &
-./fs_racer_file_create.sh $DIR $MAX_FILES &
-./fs_racer_file_create.sh $DIR $MAX_FILES &
+fs_racer_file_create.sh $DIR $MAX_FILES &
+fs_racer_file_create.sh $DIR $MAX_FILES &
+fs_racer_file_create.sh $DIR $MAX_FILES &
 
-./fs_racer_dir_create.sh $DIR $MAX_FILES &
-./fs_racer_dir_create.sh $DIR $MAX_FILES &
-./fs_racer_dir_create.sh $DIR $MAX_FILES &
+fs_racer_dir_create.sh $DIR $MAX_FILES &
+fs_racer_dir_create.sh $DIR $MAX_FILES &
+fs_racer_dir_create.sh $DIR $MAX_FILES &
 
-./fs_racer_file_rename.sh $DIR $MAX_FILES &
-./fs_racer_file_rename.sh $DIR $MAX_FILES &
-./fs_racer_file_rename.sh $DIR $MAX_FILES &
+fs_racer_file_rename.sh $DIR $MAX_FILES &
+fs_racer_file_rename.sh $DIR $MAX_FILES &
+fs_racer_file_rename.sh $DIR $MAX_FILES &
 
-./fs_racer_file_link.sh $DIR $MAX_FILES &
-./fs_racer_file_link.sh $DIR $MAX_FILES &
-./fs_racer_file_link.sh $DIR $MAX_FILES &
+fs_racer_file_link.sh $DIR $MAX_FILES &
+fs_racer_file_link.sh $DIR $MAX_FILES &
+fs_racer_file_link.sh $DIR $MAX_FILES &
 
-./fs_racer_file_symlink.sh $DIR $MAX_FILES &
-./fs_racer_file_symlink.sh $DIR $MAX_FILES &
-./fs_racer_file_symlink.sh $DIR $MAX_FILES &
+fs_racer_file_symlink.sh $DIR $MAX_FILES &
+fs_racer_file_symlink.sh $DIR $MAX_FILES &
+fs_racer_file_symlink.sh $DIR $MAX_FILES &
 
-./fs_racer_file_concat.sh $DIR $MAX_FILES &
-./fs_racer_file_concat.sh $DIR $MAX_FILES &
-./fs_racer_file_concat.sh $DIR $MAX_FILES &
+fs_racer_file_concat.sh $DIR $MAX_FILES &
+fs_racer_file_concat.sh $DIR $MAX_FILES &
+fs_racer_file_concat.sh $DIR $MAX_FILES &
 
-./fs_racer_file_list.sh $DIR &
-./fs_racer_file_list.sh $DIR &
-./fs_racer_file_list.sh $DIR &
+fs_racer_file_list.sh $DIR &
+fs_racer_file_list.sh $DIR &
+fs_racer_file_list.sh $DIR &
 
-./fs_racer_file_rm.sh $DIR $MAX_FILES &
-./fs_racer_file_rm.sh $DIR $MAX_FILES &
-./fs_racer_file_rm.sh $DIR $MAX_FILES &
+fs_racer_file_rm.sh $DIR $MAX_FILES &
+fs_racer_file_rm.sh $DIR $MAX_FILES &
+fs_racer_file_rm.sh $DIR $MAX_FILES &
 }
 
 
@@ -78,14 +78,7 @@ usage()
 call_exit()
 {
     echo \"Cleaning up\"
-    killall fs_racer_file_create.sh
-    killall fs_racer_dir_create.sh
-    killall fs_racer_file_rm.sh
-    killall fs_racer_file_rename.sh
-    killall fs_racer_file_link.sh
-    killall fs_racer_file_symlink.sh
-    killall fs_racer_file_list.sh
-    killall fs_racer_file_concat.sh
+    kill `pgrep fs_racer_`
     rm -rf $DIR
     exit 0
 }
