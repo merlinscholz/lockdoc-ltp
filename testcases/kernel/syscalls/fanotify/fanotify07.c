@@ -86,7 +86,7 @@ static int stop_children(void)
 	int i, ret = 0;
 
 	for (i = 0; i < MAX_CHILDREN; i++)
-		SAFE_KILL(child_pid[i], SIGKILL);
+		SAFE_KILL(child_pid[i], SIGTERM);
 
 	for (i = 0; i < MAX_CHILDREN; i++) {
 		SAFE_WAITPID(child_pid[i], &child_ret, 0);

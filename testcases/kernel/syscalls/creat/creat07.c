@@ -56,7 +56,7 @@ static void verify_creat(void)
 	else
 		tst_res(TFAIL | TTERRNO, "creat() failed unexpectedly");
 
-	SAFE_KILL(pid, SIGKILL);
+	SAFE_KILL(pid, SIGTERM);
 	SAFE_WAITPID(pid, NULL, 0);
 }
 

@@ -86,14 +86,14 @@ static void do_sendfile(void)
 		tst_resm(TFAIL, "sendfile(2) failed to return "
 			 "expected value, expected: %" PRId64 ", "
 			 "got: %ld", (int64_t) sb.st_size, TEST_RETURN);
-		SAFE_KILL(cleanup, child_pid, SIGKILL);
+		SAFE_KILL(cleanup, child_pid, SIGTERM);
 	} else if (after_pos != sb.st_size) {
 		tst_resm(TFAIL, "sendfile(2) failed to update "
 			 " the file position of in_fd, "
 			 "expected file position: %" PRId64 ", "
 			 "actual file position %" PRId64,
 			 (int64_t) sb.st_size, (int64_t) after_pos);
-		SAFE_KILL(cleanup, child_pid, SIGKILL);
+		SAFE_KILL(cleanup, child_pid, SIGTERM);
 	} else {
 		tst_resm(TPASS, "functionality of sendfile() is "
 			 "correct");

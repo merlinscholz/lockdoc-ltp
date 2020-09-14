@@ -101,7 +101,7 @@ static void verify_inotify(void)
 	tst_res(TPASS, "kernel survived inotify beating");
 
 	/* Kill the child creating / deleting files and wait for it */
-	SAFE_KILL(pid, SIGKILL);
+	SAFE_KILL(pid, SIGTERM);
 	SAFE_WAIT(NULL);
 }
 

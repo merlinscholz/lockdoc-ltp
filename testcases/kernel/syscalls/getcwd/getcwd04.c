@@ -71,7 +71,7 @@ static void verify_getcwd(void)
 		}
 	}
 
-	SAFE_KILL(child, SIGKILL);
+	SAFE_KILL(child, SIGTERM);
 	SAFE_WAITPID(child, &status, 0);
 }
 
