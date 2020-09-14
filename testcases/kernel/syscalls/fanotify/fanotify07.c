@@ -89,7 +89,7 @@ static int stop_children(void)
 		if (!child_pid[i])
 			continue;
 
-		SAFE_KILL(child_pid[i], SIGKILL);
+		SAFE_KILL(child_pid[i], SIGTERM);
 	}
 
 	for (i = 0; i < MAX_CHILDREN; i++) {
