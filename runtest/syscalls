@@ -718,7 +718,7 @@ msgctl03 msgctl03
 msgctl04 msgctl04
 msgstress01 msgstress01
 msgstress02 msgstress02
-msgstress03 msgstress03
+#msgstress03 msgstress03
 #msgstress04 msgstress04
 msgctl12 msgctl12
 
