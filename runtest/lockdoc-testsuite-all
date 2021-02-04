@@ -1,0 +1,217 @@
+BindMounts	$LTPROOT/testscripts/test_fs_bind.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+fs_di fs_di -d $TMPDIR
+fs_racer fs_racer.sh -t 5
+ftest03 ftest03
+gf18 growfiles -W gf18 -b -e 1 -i 0 -L 120 -w -u -r 10-5000 -I r -l -S 2 -f Lgf04_ -d $TMPDIR
+inode02 inode02
+isofs isofs.sh
+proc01 proc01 -m 128
+quota_remount_test01 quota_remount_test01.sh
+read_all_dev read_all -d /dev -p -q -r 10
+read_all_proc read_all -d /proc -q -r 10
+read_all_sys read_all -d /sys -q -r 10 -e /sys/power/wakeup_count
+test_robind13 test_robind.sh -c "mkfifo gffifo18; growfiles -b -W gf13 -e 1 -u -i 0 -L 3 -I r -r 1-4096 gffifo18"
+test_robind19 test_robind.sh -c "growfiles -W gf19 -b -e 1 -g 5000 -i 500 -t 49900 -T10 -c9 -I p -o O_RDWR,O_CREAT,O_TRUNC -u -f gf08i_"
+test_robind26 test_robind.sh -c "growfiles -W gf26 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 128-32768:128 -R 512-64000 -T 4 gfsmallio-$$"
+test_robind33 test_robind.sh -c "rwtest -N rwtest03 -c -q -i 60s -n 2  -f buffered -s mmread,mmwrite -m random -Dv 10%25000:mm-buff-$$"
+test_robind34 test_robind.sh -c "rwtest -N rwtest04 -c -q -i 60s -n 2  -f sync -s mmread,mmwrite -m random -Dv 10%25000:mm-sync-$$"
+test_robind35 test_robind.sh -c "rwtest -N rwtest05 -c -q -i 50 -T 64b 500b:rwtest01%f"
+test_robind36 test_robind.sh -c "rwtest -N iogen01 -i 120s -s read,write -Da -Dv -n 2 500b:doio.f1.$$ 1000b:doio.f2.$$"
+test_robind40 test_robind.sh -c "inode02"
+test_robind47 test_robind.sh -c "ftest02"
+test_robind48 test_robind.sh -c "ftest03"
+test_robind50 test_robind.sh -c "ftest05"
+test_robind52 test_robind.sh -c "ftest07"
+accept01 accept01
+access04 access04
+acct01 acct01
+brk01 brk01
+chdir03 chdir03
+chmod05 chmod05
+chroot01 chroot01
+chroot04 chroot04
+clone09 clone09
+copy_file_range01 copy_file_range01
+dup06 dup06
+dup3_01 dup3_01
+epoll_create1_01 epoll_create1_01
+epoll_ctl01 epoll_ctl01
+epoll_ctl02 epoll_ctl02
+epoll_pwait01 epoll_pwait01
+epoll_wait03 epoll_wait03
+eventfd01 eventfd01
+eventfd2_03 eventfd2_03
+execve03 execve03
+execveat02 execveat02
+execveat03 execveat03
+fallocate04 fallocate04
+fallocate05 fallocate05
+fanotify01 fanotify01
+fanotify03 fanotify03
+fanotify04 fanotify04
+fanotify05 fanotify05
+fanotify07 fanotify07
+fanotify09 fanotify09
+fanotify10 fanotify10
+fanotify11 fanotify11
+fchdir03 fchdir03
+fdatasync02 fdatasync02
+fgetxattr01 fgetxattr01
+fgetxattr02 fgetxattr02
+flistxattr03 flistxattr03
+flock02 flock02
+flock04 flock04
+fremovexattr02 fremovexattr02
+fsetxattr01 fsetxattr01
+fsync01 fsync01
+futex_wake02 futex_wake02
+futex_wake03 futex_wake03
+futex_wake04 futex_wake04
+futimesat01 futimesat01
+getcwd04 getcwd04
+inotify02 inotify02
+inotify05 inotify05
+inotify06 inotify06
+inotify07 inotify07
+inotify08 inotify08
+inotify09 inotify09
+io_cancel01 io_cancel01
+ioctl01_02   test_ioctl
+ioctl04      ioctl04
+io_destroy01 io_destroy01
+io_setup01 io_setup01
+io_submit01 io_submit01
+keyctl02 keyctl02
+kill11 kill11
+linkat01 linkat01
+linkat02 linkat02
+listxattr03 listxattr03
+llistxattr02 llistxattr02
+llseek01 llseek01
+lremovexattr01 lremovexattr01
+lseek11 lseek11
+madvise01 madvise01
+madvise02 madvise02
+madvise05 madvise05
+madvise06 madvise06
+memfd_create01 memfd_create01
+memfd_create03 memfd_create03
+memfd_create04 memfd_create04
+mincore01 mincore01
+mkdir02 mkdir02
+mknodat02 mknodat02
+mlock01 mlock01
+mlock03 mlock03 -i 20
+mlock201 mlock201
+mlock202 mlock202
+mlockall01 mlockall01
+mlockall03 mlockall03
+mmap05 mmap05
+mmap09 mmap09
+mmap13 mmap13
+mmap16 mmap16
+mount02 mount02
+mount03 mount03
+mprotect03 mprotect03
+mprotect04 mprotect04
+mq_unlink01 mq_unlink01
+mremap01 mremap01
+mremap05 mremap05
+msgstress02 msgstress02
+msync03 msync03
+msync04 msync04
+munlock01 munlock01
+munlock02 munlock02
+munlockall01 munlockall01
+open06 open06
+open08 open08
+open10 open10
+open12 open12
+openat03 openat03
+perf_event_open01 perf_event_open01
+personality02 personality02
+pipe05 pipe05
+pipe07 pipe07
+ppoll01 ppoll01
+process_vm_readv03 process_vm_readv03
+process_vm_writev01 process_vm01 -w
+process_vm_writev02 process_vm_writev02
+prot_hsymlinks prot_hsymlinks
+quotactl01 quotactl01
+read02 read02
+readahead02 readahead02
+readlink03 readlink03
+readlinkat02 readlinkat02
+realpath01 realpath01
+remap_file_pages01 remap_file_pages01
+remap_file_pages02 remap_file_pages02
+rename03 rename03
+rename04 rename04
+rename10 rename10
+rename11 rename11
+rename14 rename14
+renameat01 renameat01
+renameat202 renameat202 -i 10
+rmdir02 rmdir02
+sbrk02 sbrk02
+select04 select04
+sendmsg01 sendmsg01
+sendmsg02 sendmsg02
+sethostname03 sethostname03
+setns01 setns01
+setns02 setns02
+setpriority01 setpriority01
+setrlimit01 setrlimit01
+setsockopt02 setsockopt02
+setxattr02 setxattr02
+setxattr03 setxattr03
+shmat01 shmat01
+shmctl01 shmctl01
+shmctl05 shmctl05
+signal06 signal06
+signalfd01 signalfd01
+splice04 splice04
+splice05 splice05
+statx02 statx02
+statx03 statx03
+statx04 statx04
+statx05 statx05
+stime01 stime01
+swapoff02 swapoff02
+swapon02 swapon02
+swapon03 swapon03
+sync_file_range01 sync_file_range01
+sysctl03 sysctl03
+sysfs03 sysfs03
+sysfs05 sysfs05
+sysfs06 sysfs06
+syslog01 syslog01
+syslog10 syslog10
+tee01 tee01
+timerfd01 timerfd01
+timerfd_create01 timerfd_create01
+timerfd_gettime01 timerfd_gettime01
+timerfd_settime01 timerfd_settime01
+umount02 umount02
+umount2_02 umount2_02
+umount2_03 umount2_03
+unshare01 unshare01
+utimensat01 utimensat_tests.sh
+utimes01 utimes01
+vhangup02 vhangup02
+vmsplice01 vmsplice01
+waitid02 waitid02
+write04 write04
+writev01 writev01
