@@ -1,0 +1,368 @@
+Filecaps	filecapstest.sh
+BindMounts	$LTPROOT/testscripts/test_fs_bind.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
+ext4-uninit-groups	ext4_uninit_groups_test.sh
+ext4-persist-prealloc	ext4_persist_prealloc_test.sh
+ext4-subdir-limit	ext4_subdir_limit_test.sh
+fs_di fs_di -d $TMPDIR
+fs_fill fs_fill
+fs_inod01 fs_inod $TMPDIR 10 10 10
+fs_racer fs_racer.sh -t 5
+ftest01 ftest01
+ftest02 ftest02
+ftest03 ftest03
+ftest04 ftest04
+ftest05 ftest05
+ftest06 ftest06
+ftest07 ftest07
+ftest08 ftest08
+gf01 growfiles -W gf01 -b -e 1 -u -i 0 -L 20 -w -C 1 -l -I r -T 10 -f glseek20 -S 2 -d $TMPDIR
+gf02 growfiles -W gf02 -b -e 1 -L 10 -i 100 -I p -S 2 -u -f gf03_ -d $TMPDIR
+gf03 growfiles -W gf03 -b -e 1 -g 1 -i 1 -S 150 -u -f gf05_ -d $TMPDIR
+gf04 growfiles -W gf04 -b -e 1 -g 4090 -i 500 -t 39000 -u -f gf06_ -d $TMPDIR
+gf05 growfiles -W gf05 -b -e 1 -g 5000 -i 500 -t 49900 -T10 -c9 -I p -u -f gf07_ -d $TMPDIR
+gf06 growfiles -W gf06 -b -e 1 -u -r 1-5000 -R 0--1 -i 0 -L 30 -C 1 -f g_rand10 -S 2 -d $TMPDIR
+gf07 growfiles -W gf07 -b -e 1 -u -r 1-5000 -R 0--2 -i 0 -L 30 -C 1 -I p -f g_rand13 -S 2 -d $TMPDIR
+gf08 growfiles -W gf08 -b -e 1 -u -r 1-5000 -R 0--2 -i 0 -L 30 -C 1 -f g_rand11 -S 2 -d $TMPDIR
+gf09 growfiles -W gf09 -b -e 1 -u -r 1-5000 -R 0--1 -i 0 -L 30 -C 1 -I p -f g_rand12 -S 2 -d $TMPDIR
+gf10 growfiles -W gf10 -b -e 1 -u -r 1-5000 -i 0 -L 30 -C 1 -I l -f g_lio14 -S 2 -d $TMPDIR
+gf11 growfiles -W gf11 -b -e 1 -u -r 1-5000 -i 0 -L 30 -C 1 -I L -f g_lio15 -S 2 -d $TMPDIR
+gf12 mkfifo $TMPDIR/gffifo17; growfiles -b -W gf12 -e 1 -u -i 0 -L 30 $TMPDIR/gffifo17
+gf13 mkfifo $TMPDIR/gffifo18; growfiles -b -W gf13 -e 1 -u -i 0 -L 30 -I r -r 1-4096 $TMPDIR/gffifo18
+gf14 growfiles -W gf14 -b -e 1 -u -i 0 -L 20 -w -l -C 1 -T 10 -f glseek19 -S 2 -d $TMPDIR
+gf15 growfiles -W gf15 -b -e 1 -u -r 1-49600 -I r -u -i 0 -L 120 -f Lgfile1 -d $TMPDIR
+gf16 growfiles -W gf16 -b -e 1 -i 0 -L 120 -u -g 4090 -T 101 -t 408990 -l -C 10 -c 1000 -S 10 -f Lgf02_ -d $TMPDIR
+gf17 growfiles -W gf17 -b -e 1 -i 0 -L 120 -u -g 5000 -T 101 -t 499990 -l -C 10 -c 1000 -S 10 -f Lgf03_ -d $TMPDIR
+gf18 growfiles -W gf18 -b -e 1 -i 0 -L 120 -w -u -r 10-5000 -I r -l -S 2 -f Lgf04_ -d $TMPDIR
+gf19 growfiles -W gf19 -b -e 1 -g 5000 -i 500 -t 49900 -T10 -c9 -I p -o O_RDWR,O_CREAT,O_TRUNC -u -f gf08i_ -d $TMPDIR
+gf20 growfiles -W gf20 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 1-256000:512 -R 512-256000 -T 4 -f gfbigio-$$ -d $TMPDIR
+gf21 growfiles -W gf21 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 -T 10 -t 20480 -f gf-bld-$$ -d $TMPDIR
+gf22 growfiles -W gf22 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 -T 10 -t 20480 -f gf-bldf-$$ -d $TMPDIR
+gf23 growfiles -W gf23 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 512-64000:1024 -R 1-384000 -T 4 -f gf-inf-$$ -d $TMPDIR
+gf24 growfiles -W gf24 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 -f gf-jbld-$$ -d $TMPDIR
+gf25 growfiles -W gf25 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 1024000-2048000:2048 -R 4095-2048000 -T 1 -f gf-large-gs-$$ -d $TMPDIR
+gf26 growfiles -W gf26 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 128-32768:128 -R 512-64000 -T 4 -f gfsmallio-$$ -d $TMPDIR
+gf27 growfiles -W gf27 -b -D 0 -w -g 8b -C 1 -b -i 1000 -u -f gfsparse-1-$$ -d $TMPDIR
+gf28 growfiles -W gf28 -b -D 0 -w -g 16b -C 1 -b -i 1000 -u -f gfsparse-2-$$ -d $TMPDIR
+gf29 growfiles -W gf29 -b -D 0 -r 1-4096 -R 0-33554432 -i 0 -L 60 -C 1 -u -f gfsparse-3-$$ -d $TMPDIR
+gf30 growfiles -W gf30 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -o O_RDWR,O_CREAT,O_SYNC -g 20480 -T 10 -t 20480 -f gf-sync-$$ -d $TMPDIR
+inode01 inode01
+inode02 inode02
+iogen01 export LTPROOT; rwtest -N iogen01 -i 120s -s read,write -Da -Dv -n 2 500b:$TMPDIR/doio.f1.$$ 1000b:$TMPDIR/doio.f2.$$
+isofs isofs.sh
+lftest01	lftest 100
+linker01 linktest.sh 1000 1000
+openfile01 openfile -f10 -t10
+fs_perms01 fs_perms 005 99 99 12 100 x 0
+fs_perms02 fs_perms 050 99 99 200 99 x 0
+fs_perms03 fs_perms 500 99 99 99 500 x 0
+fs_perms04 fs_perms 002 99 99 12 100 w 0
+fs_perms05 fs_perms 020 99 99 200 99 w 0
+fs_perms06 fs_perms 200 99 99 99 500 w 0
+fs_perms07 fs_perms 004 99 99 12 100 r 0
+fs_perms08 fs_perms 040 99 99 200 99 r 0
+fs_perms09 fs_perms 400 99 99 99 500 r 0
+fs_perms10 fs_perms 000 99 99 99 99  r 1
+fs_perms11 fs_perms 000 99 99 99 99  w 1
+fs_perms12 fs_perms 000 99 99 99 99  x 1
+fs_perms13 fs_perms 010 99 99 99 500 x 1
+fs_perms14 fs_perms 100 99 99 200 99 x 1
+fs_perms15 fs_perms 020 99 99 99 500 w 1
+fs_perms16 fs_perms 200 99 99 200 99 w 1
+fs_perms17 fs_perms 040 99 99 99 500 r 1
+fs_perms18 fs_perms 400 99 99 200 99 r 1
+proc01 proc01 -m 128
+quota_remount_test01 quota_remount_test01.sh
+read_all_dev read_all -d /dev -p -q -r 10
+read_all_proc read_all -d /proc -q -r 10
+read_all_sys read_all -d /sys -q -r 10 -e /sys/power/wakeup_count
+test_robind01 test_robind.sh -c "growfiles -W gf01 -b -e 1 -u -i 0 -L 5 -w -C 1 -l -I r -T 10 glseek20 glseek20.2"
+test_robind02 test_robind.sh -c "growfiles -W gf02 -b -e 1 -L 10 -i 100 -I p -S 2 -u -f gf03_"
+test_robind03 test_robind.sh -c "growfiles -W gf03 -b -e 1 -g 1 -i 1 -S 150 -u -f gf05_"
+test_robind04 test_robind.sh -c "growfiles -W gf04 -b -e 1 -g 4090 -i 500 -t 39000 -u -f gf06_"
+test_robind05 test_robind.sh -c "growfiles -W gf05 -b -e 1 -g 5000 -i 500 -t 49900 -T10 -c9 -I p -u -f gf07_"
+test_robind06 test_robind.sh -c "growfiles -W gf06 -b -e 1 -u -r 1-5000 -R 0--1 -i 0 -L 3 -C 1 g_rand10 g_rand10.2"
+test_robind07 test_robind.sh -c "growfiles -W gf07 -b -e 1 -u -r 1-5000 -R 0--2 -i 0 -L 3 -C 1 -I p g_rand13 g_rand13.2"
+test_robind08 test_robind.sh -c "growfiles -W gf08 -b -e 1 -u -r 1-5000 -R 0--2 -i 0 -L 3 -C 1 g_rand11 g_rand11.2"
+test_robind09 test_robind.sh -c "growfiles -W gf09 -b -e 1 -u -r 1-5000 -R 0--1 -i 0 -L 3 -C 1 -I p g_rand12 g_rand12.2"
+test_robind10 test_robind.sh -c "growfiles -W gf10 -b -e 1 -u -r 1-5000 -i 0 -L 3 -C 1 -I l g_lio14 g_lio14.2"
+test_robind11 test_robind.sh -c "growfiles -W gf11 -b -e 1 -u -r 1-5000 -i 0 -L 3 -C 1 -I L g_lio15 g_lio15.2"
+test_robind12 test_robind.sh -c "mkfifo gffifo17; growfiles -b -W gf12 -e 1 -u -i 0 -L 3 gffifo17"
+test_robind13 test_robind.sh -c "mkfifo gffifo18; growfiles -b -W gf13 -e 1 -u -i 0 -L 3 -I r -r 1-4096 gffifo18"
+test_robind14 test_robind.sh -c "growfiles -W gf14 -b -e 1 -u -i 0 -L 2 -w -l -C 1 -T 10 glseek19 glseek19.2"
+test_robind15 test_robind.sh -c "growfiles -W gf15 -b -e 1 -u -r 1-49600 -I r -u -i 0 -L 3 Lgfile1"
+test_robind16 test_robind.sh -c "growfiles -W gf16 -b -e 1 -i 0 -L 3 -u -g 4090 -T 100 -t 408990 -l -C 10 -c 1000 -S 10 -f Lgf02_"
+test_robind17 test_robind.sh -c "growfiles -W gf17 -b -e 1 -i 0 -L 3 -u -g 5000 -T 100 -t 499990 -l -C 10 -c 1000 -S 10 -f Lgf03_"
+test_robind18 test_robind.sh -c "growfiles -W gf18 -b -e 1 -i 0 -L 3 -w -u -r 10-5000 -I r -l -S 2 -f Lgf04_"
+test_robind19 test_robind.sh -c "growfiles -W gf19 -b -e 1 -g 5000 -i 500 -t 49900 -T10 -c9 -I p -o O_RDWR,O_CREAT,O_TRUNC -u -f gf08i_"
+test_robind20 test_robind.sh -c "growfiles -W gf20 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 1-256000:512 -R 512-256000 -T 4 gfbigio-$$"
+test_robind21 test_robind.sh -c "growfiles -W gf21 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 -T 10 -t 20480 gf-bld-$$"
+test_robind22 test_robind.sh -c "growfiles -W gf22 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 -T 10 -t 20480 gf-bldf-$$"
+test_robind23 test_robind.sh -c "growfiles -W gf23 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 512-64000:1024 -R 1-384000 -T 4 gf-inf-$$"
+test_robind24 test_robind.sh -c "growfiles -W gf24 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -g 20480 gf-jbld-$$"
+test_robind25 test_robind.sh -c "growfiles -W gf25 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 1024000-2048000:2048 -R 4095-2048000 -T 1 gf-large-gs-$$"
+test_robind26 test_robind.sh -c "growfiles -W gf26 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -r 128-32768:128 -R 512-64000 -T 4 gfsmallio-$$"
+test_robind27 test_robind.sh -c "growfiles -W gf27 -b -D 0 -w -g 8b -C 1 -b -i 1000 -u gfsparse-1-$$"
+test_robind28 test_robind.sh -c "growfiles -W gf28 -b -D 0 -w -g 16b -C 1 -b -i 1000 -u gfsparse-2-$$"
+test_robind29 test_robind.sh -c "growfiles -W gf29 -b -D 0 -r 1-4096 -R 0-33554432 -i 0 -L 60 -C 1 -u gfsparse-3-$$"
+test_robind30 test_robind.sh -c "growfiles -W gf30 -D 0 -b -i 0 -L 60 -u -B 1000b -e 1 -o O_RDWR,O_CREAT,O_SYNC -g 20480 -T 10 -t 20480 gf-sync-$$"
+test_robind31 test_robind.sh -c "rwtest -N rwtest01 -c -q -i 60s  -f sync 10%25000:rw-sync-$$"
+test_robind32 test_robind.sh -c "rwtest -N rwtest02 -c -q -i 60s  -f buffered 10%25000:rw-buffered-$$"
+test_robind33 test_robind.sh -c "rwtest -N rwtest03 -c -q -i 60s -n 2  -f buffered -s mmread,mmwrite -m random -Dv 10%25000:mm-buff-$$"
+test_robind34 test_robind.sh -c "rwtest -N rwtest04 -c -q -i 60s -n 2  -f sync -s mmread,mmwrite -m random -Dv 10%25000:mm-sync-$$"
+test_robind35 test_robind.sh -c "rwtest -N rwtest05 -c -q -i 50 -T 64b 500b:rwtest01%f"
+test_robind36 test_robind.sh -c "rwtest -N iogen01 -i 120s -s read,write -Da -Dv -n 2 500b:doio.f1.$$ 1000b:doio.f2.$$"
+test_robind37 test_robind.sh -c "fs_inod . 10 10 1"
+test_robind38 test_robind.sh -c "openfile -f10 -t10"
+test_robind39 test_robind.sh -c "inode01"
+test_robind40 test_robind.sh -c "inode02"
+test_robind41 test_robind.sh -c "stream01"
+test_robind42 test_robind.sh -c "stream02"
+test_robind43 test_robind.sh -c "stream03"
+test_robind44 test_robind.sh -c "stream04"
+test_robind45 test_robind.sh -c "stream05"
+test_robind46 test_robind.sh -c "ftest01"
+test_robind47 test_robind.sh -c "ftest02"
+test_robind48 test_robind.sh -c "ftest03"
+test_robind49 test_robind.sh -c "ftest04"
+test_robind50 test_robind.sh -c "ftest05"
+test_robind51 test_robind.sh -c "ftest06"
+test_robind52 test_robind.sh -c "ftest07"
+test_robind53 test_robind.sh -c "ftest08"
+test_robind54 test_robind.sh -c "lftest 80"
+test_robind55 test_robind.sh -c "writetest"
+rwtest01 export LTPROOT; rwtest -N rwtest01 -c -q -i 60s  -f sync 10%25000:$TMPDIR/rw-sync-$$
+rwtest02 export LTPROOT; rwtest -N rwtest02 -c -q -i 60s  -f buffered 10%25000:$TMPDIR/rw-buffered-$$
+rwtest03 export LTPROOT; rwtest -N rwtest03 -c -q -i 60s -n 2  -f buffered -s mmread,mmwrite -m random -Dv 10%25000:$TMPDIR/mm-buff-$$
+rwtest04 export LTPROOT; rwtest -N rwtest04 -c -q -i 60s -n 2  -f sync -s mmread,mmwrite -m random -Dv 10%25000:$TMPDIR/mm-sync-$$
+rwtest05 export LTPROOT; rwtest -N rwtest05 -c -q -i 50 -T 64b 500b:$TMPDIR/rwtest01%f
+stream01 stream01
+stream02 stream02
+stream03 stream03
+stream04 stream04
+stream05 stream05
+writetest01	writetest
+fsx-linux export TCbin=$LTPROOT/testcases/bin;fsxtest02 10000
+accept01 accept01
+access04 access04
+acct01 acct01
+brk01 brk01
+chdir03 chdir03
+chroot01 chroot01
+chroot04 chroot04
+clone09 clone09
+copy_file_range01 copy_file_range01
+creat06 creat06
+dup06 dup06
+dup3_01 dup3_01
+epoll_create1_01 epoll_create1_01
+epoll_ctl01 epoll_ctl01
+epoll_ctl02 epoll_ctl02
+epoll_pwait01 epoll_pwait01
+epoll_wait01 epoll_wait01
+epoll_wait03 epoll_wait03
+eventfd01 eventfd01
+eventfd2_03 eventfd2_03
+execve03 execve03
+execveat02 execveat02
+execveat03 execveat03
+fallocate01 fallocate01
+fallocate03 fallocate03
+fallocate04 fallocate04
+fallocate05 fallocate05
+fanotify01 fanotify01
+fanotify03 fanotify03
+fanotify04 fanotify04
+fanotify05 fanotify05
+fanotify07 fanotify07
+fanotify09 fanotify09
+fanotify10 fanotify10
+fanotify11 fanotify11
+fchdir03 fchdir03
+fchmod05 fchmod05
+fcntl34_64 fcntl34_64
+fdatasync02 fdatasync02
+fgetxattr01 fgetxattr01
+fgetxattr02 fgetxattr02
+flistxattr02 flistxattr02
+flock02 flock02
+flock04 flock04
+fork09 fork09
+fork13 fork13 -i 1000000
+fremovexattr02 fremovexattr02
+fsetxattr01 fsetxattr01
+fsetxattr02 fsetxattr02
+fsync01 fsync01
+fsync02 fsync02
+futex_wake02 futex_wake02
+futex_wake03 futex_wake03
+futex_wake04 futex_wake04
+futimesat01 futimesat01
+getcwd04 getcwd04
+getrusage03 getrusage03
+getrusage04 getrusage04
+inotify02 inotify02
+inotify05 inotify05
+inotify06 inotify06
+inotify07 inotify07
+inotify08 inotify08
+inotify09 inotify09
+io_cancel01 io_cancel01
+ioctl01_02   test_ioctl
+ioctl04      ioctl04
+io_destroy01 io_destroy01
+io_setup01 io_setup01
+io_submit01 io_submit01
+keyctl02 keyctl02
+kill11 kill11
+linkat01 linkat01
+linkat02 linkat02
+listxattr03 listxattr03
+llistxattr03 llistxattr03
+llseek01 llseek01
+lremovexattr01 lremovexattr01
+lseek11 lseek11
+madvise01 madvise01
+madvise02 madvise02
+madvise05 madvise05
+madvise06 madvise06
+madvise08 madvise08
+memfd_create01 memfd_create01
+memfd_create03 memfd_create03
+memfd_create04 memfd_create04
+mincore01 mincore01
+mkdir02 mkdir02
+mkdirat02 mkdirat02
+mknod01 mknod01
+mknodat02 mknodat02
+mlock01 mlock01
+mlock03 mlock03 -i 20
+mlock201 mlock201
+mlock202 mlock202
+mlockall01 mlockall01
+mlockall03 mlockall03
+mmap05 mmap05
+mmap09 mmap09
+mmap13 mmap13
+mmap16 mmap16
+mount02 mount02
+mount03 mount03
+mount06 mount06
+mprotect03 mprotect03
+mprotect04 mprotect04
+mq_unlink01 mq_unlink01
+mremap01 mremap01
+mremap05 mremap05
+msgstress01 msgstress01
+msgstress02 msgstress02
+msync01 msync01
+msync03 msync03
+msync04 msync04
+munlock01 munlock01
+munlock02 munlock02
+munlockall01 munlockall01
+nftw6401 nftw6401
+open06 open06
+open08 open08
+open10 open10
+open11 open11
+open12 open12
+openat03 openat03
+pathconf01 pathconf01
+perf_event_open01 perf_event_open01
+personality02 personality02
+pipe05 pipe05
+pipe07 pipe07
+pipe09 pipe09
+pipe11 pipe11
+ppoll01 ppoll01
+process_vm_readv03 process_vm_readv03
+process_vm_writev01 process_vm01 -w
+process_vm_writev02 process_vm_writev02
+prot_hsymlinks prot_hsymlinks
+quotactl01 quotactl01
+read02 read02
+readahead02 readahead02
+readlink03 readlink03
+readlinkat02 readlinkat02
+readv03 readv03
+realpath01 realpath01
+remap_file_pages01 remap_file_pages01
+remap_file_pages02 remap_file_pages02
+rename03 rename03
+rename04 rename04
+rename06 rename06
+rename10 rename10
+rename11 rename11
+rename14 rename14
+renameat01 renameat01
+renameat201 renameat201
+rmdir02 rmdir02
+sbrk02 sbrk02
+select04 select04
+semctl01 semctl01
+sendmsg01 sendmsg01
+sendmsg02 sendmsg02
+sethostname03 sethostname03
+setns01 setns01
+setns02 setns02
+setpriority01 setpriority01
+setrlimit01 setrlimit01
+setsockopt02 setsockopt02
+setxattr02 setxattr02
+setxattr03 setxattr03
+shmat01 shmat01
+shmctl01 shmctl01
+shmctl05 shmctl05
+signal06 signal06
+signalfd01 signalfd01
+sockioctl01 sockioctl01
+splice02 seq 1 20000 | splice02
+splice04 splice04
+splice05 splice05
+statx02 statx02
+statx03 statx03
+statx04 statx04
+statx05 statx05
+stime01 stime01
+swapoff02 swapoff02
+swapon02 swapon02
+swapon03 swapon03
+symlinkat01 symlinkat01
+sync_file_range01 sync_file_range01
+sysctl03 sysctl03
+sysfs03 sysfs03
+sysfs05 sysfs05
+sysfs06 sysfs06
+syslog01 syslog01
+syslog03 syslog03
+syslog10 syslog10
+tee01 tee01
+timerfd01 timerfd01
+timerfd_create01 timerfd_create01
+timerfd_gettime01 timerfd_gettime01
+timerfd_settime01 timerfd_settime01
+umount02 umount02
+umount2_01 umount2_01
+umount2_02 umount2_02
+umount2_03 umount2_03
+unshare01 unshare01
+utimensat01 utimensat_tests.sh
+utimes01 utimes01
+vhangup02 vhangup02
+vmsplice01 vmsplice01
+waitid02 waitid02
+write04 write04
+writev01 writev01
