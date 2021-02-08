@@ -1,3 +1,6 @@
+dio10 diotest4 -b 65536
+dio29 diotest3 -b 65536 -n 100 -i 100 -o 1024000
+dio30 diotest6 -b 65536 -n 100 -i 100 -o 1024000
 BindMounts	$LTPROOT/testscripts/test_fs_bind.sh
 ext4-nsec-timestamps	ext4_nsec_timestamps_test.sh
 ext4-uninit-groups	ext4_uninit_groups_test.sh
@@ -150,7 +153,6 @@ process_vm_writev01 process_vm01 -w
 process_vm_writev02 process_vm_writev02
 prot_hsymlinks prot_hsymlinks
 quotactl01 quotactl01
-read02 read02
 readahead02 readahead02
 readlink03 readlink03
 readlinkat02 readlinkat02
