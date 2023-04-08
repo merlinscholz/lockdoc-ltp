@@ -17,12 +17,8 @@ acct02 acct02
 add_key01 add_key01
 add_key02 add_key02
 add_key03 add_key03
-<<<<<<< HEAD
-#add_key04 add_key04
-add_key05 add_key05
-=======
 add_key04 add_key04
->>>>>>> edf3aa5c2 (Restored original syscalls suite)
+add_key05 add_key05
 
 adjtimex01 adjtimex01
 adjtimex02 adjtimex02
